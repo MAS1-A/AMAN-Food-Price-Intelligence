@@ -22,7 +22,6 @@ An end-to-end academic machine learning capstone platform for monitoring, benchm
 - [Platform Objectives](#platform-objectives)
 - [System Architecture](#system-architecture)
 - [Dataset & Feature Pipeline](#dataset--feature-pipeline)
-- [Data Engineering & Feature Extraction](#data-engineering--feature-extraction)
 - [Comprehensive Model Benchmark (11 Models)](#comprehensive-model-benchmark-11-models)
 - [Production Deployment Rationale](#production-deployment-rationale)
 - [Fair-Price Auditing Intelligence](#fair-price-auditing-intelligence)
@@ -137,27 +136,7 @@ The platform is evaluated on historical Egyptian market observations covering 23
 | `Urbanization` | `float64` | Proportion of urbanized population within the governorate. |
 | **`Price_EGP`** | `float64` | **Target Variable**: Observed real transaction unit price in Egyptian Pounds. |
 
----
 
-## Data Engineering & Feature Extraction
-
-### 1. Cyclical Harmonic Encoding
-Calendar months ($1 \dots 12$) introduce an artificial discontinuity between December and January. We project months onto continuous circular coordinates:
-
-$$\text{Annual\_Sin} = \sin\left(2\pi \cdot \frac{\text{Month}}{12}\right), \quad \text{Annual\_Cos} = \cos\left(2\pi \cdot \frac{\text{Month}}{12}\right)$$
-
-### 2. Cultural & Seasonal Modeling
-* **`Is_Ramadan`:** Binary indicator identifying Ramadan periods to account for seasonal spikes in consumption.
-* **`Season`:** Meteorological categorization (`Winter`, `Spring`, `Summer`, `Autumn`) reflecting regional harvest cycles.
-
-### 3. Logarithmic Scaling
-Because price distributions exhibit positive right-skewness, models are trained on log-transformed targets:
-
-$$\tilde{y} = \ln(1 + \text{Price\_EGP})$$
-
-During inference, predictions are mapped back to actual currency units:
-
-$$\hat{y}_{\text{real}} = \exp(\hat{y}) - 1$$
 ---
 
 ## Comprehensive Model Benchmark (11 Models)
