@@ -158,7 +158,6 @@ $$\tilde{y} = \ln(1 + \text{Price\_EGP})$$
 During inference, predictions are mapped back to actual currency units:
 
 $$\hat{y}_{\text{real}} = \exp(\hat{y}) - 1$$
-
 ---
 
 ## Comprehensive Model Benchmark (11 Models)
