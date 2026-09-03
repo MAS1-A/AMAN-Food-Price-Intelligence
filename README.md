@@ -22,7 +22,6 @@ An end-to-end academic machine learning capstone platform for monitoring, benchm
 - [Platform Objectives](#platform-objectives)
 - [System Architecture](#system-architecture)
 - [Dataset & Feature Pipeline](#dataset--feature-pipeline)
-- [Comprehensive Model Benchmark (11 Models)](#comprehensive-model-benchmark-11-models)
 - [Production Deployment Rationale](#production-deployment-rationale)
 - [Fair-Price Auditing Intelligence](#fair-price-auditing-intelligence)
 - [Forward Forecasting Engine](#forward-forecasting-engine)
@@ -136,26 +135,6 @@ The platform is evaluated on historical Egyptian market observations covering 23
 | `Urbanization` | `float64` | Proportion of urbanized population within the governorate. |
 | **`Price_EGP`** | `float64` | **Target Variable**: Observed real transaction unit price in Egyptian Pounds. |
 
-
----
-
-## Comprehensive Model Benchmark (11 Models)
-
-All 11 candidates were trained on identical training splits and evaluated against an out-of-sample held-out test split. All metrics reflect **real-scale currency (EGP)**:
-
-| Rank | Model Architecture | Train $R^2$ (%) | Test $R^2$ (%) | Generalization Gap ($\Delta R^2$) | Test MAE (EGP) | Test RMSE (EGP) | Status / Role |
-| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| 🥇 1 | **MLP Regressor** | 99.40% | **99.37%** | **+0.03%** | **5.03** | **8.98** | *Research Elite Benchmark* |
-| 🥈 2 | **Voting Regressor** | 99.40% | **99.09%** | +0.31% | 6.00 | 10.77 | *Hybrid Ensemble* |
-| 🥉 3 | **Linear Regression** | 98.99% | **98.93%** | **+0.06%** | **6.67** | **11.66** | **⚡ Production Deployed** |
-| 4 | **Stacking Regressor** | 99.44% | 98.80% | +0.64% | 7.07 | 12.37 | Meta-Learner Ensemble |
-| 5 | **CatBoost Regressor** | 99.45% | 98.69% | +0.76% | 7.31 | 12.93 | Gradient Boosted Trees |
-| 6 | **XGBoost Regressor** | 99.41% | 98.58% | +0.84% | 7.63 | 13.47 | Gradient Boosted Trees |
-| 7 | **Random Forest Regressor** | 99.91% | 98.40% | +1.52% | 7.99 | 14.29 | Bagging Ensemble |
-| 8 | **K-Nearest Neighbors** | 99.55% | 98.26% | +1.29% | 8.38 | 14.90 | Instance-Based Baseline |
-| 9 | **LightGBM Regressor** | 99.35% | 98.06% | +1.29% | 8.42 | 15.71 | Histogram Boosting |
-| 10 | **Decision Tree Regressor** | 100.00% | 97.81% | +2.19% | 9.28 | 16.71 | Memorization Overfit |
-| 11 | **Gradient Boosting (sklearn)** | 97.91% | 94.50% | +3.41% | 13.95 | 26.46 | Suboptimal Optimization |
 
 ---
 
